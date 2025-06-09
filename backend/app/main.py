@@ -26,5 +26,6 @@ async def health_check():
 async def get_message():
     return {"message": "You've successfully integrated the backend!"}
 
-# Mount static files from the frontend build directory
-app.mount("/", StaticFiles(directory="./frontend_build", html=True), name="frontend")
+# Mount static files from the frontend build directory only if not in testing environment
+if os.getenv("TESTING") != "true":
+    app.mount("/", StaticFiles(directory="./frontend_build", html=True), name="frontend")
