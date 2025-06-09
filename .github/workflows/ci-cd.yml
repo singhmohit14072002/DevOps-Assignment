@@ -67,7 +67,9 @@ jobs:
       if: github.ref == 'refs/heads/develop'
       run: |
         IMAGE_TAG=$(echo $GITHUB_SHA | cut -c 1-7)
-        FULL_IMAGE_URI=${{ steps.login-ecr.outputs.registry }}/${{ env.ECR_REPOSITORY }}:${{ IMAGE_TAG }}
+        ECR_REGISTRY=${{ steps.login-ecr.outputs.registry }}
+        ECR_REPO=${{ env.ECR_REPOSITORY }}
+        FULL_IMAGE_URI="${ECR_REGISTRY}/${ECR_REPO}:${IMAGE_TAG}"
         docker build -t ${FULL_IMAGE_URI} .
         docker push ${FULL_IMAGE_URI}
         echo "ecr_image_uri=${FULL_IMAGE_URI}" >> "$GITHUB_OUTPUT"
