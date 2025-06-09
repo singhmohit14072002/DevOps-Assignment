@@ -102,7 +102,7 @@ jobs:
         curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
         sudo apt-get install -y unzip
         unzip awscliv2.zip
-        sudo ./aws/install
+        sudo ./aws/install --update
 
     - name: ECS Deployment (develop/main)
       run: |
