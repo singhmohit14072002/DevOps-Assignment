@@ -13,4 +13,10 @@ out/
 
 # Docker ignore for convenience if a .dockerignore isn't present in subdirectories
 # This is already handled by the Dockerfile COPY commands, but good to have if ever needed
-**/__pycache__/ 
+**/__pycache__/
+
+# Terraform generated files
+terraform/.terraform/
+terraform/*.tfstate
+terraform/*.tfstate.backup
+.terraform.lock.hcl 
