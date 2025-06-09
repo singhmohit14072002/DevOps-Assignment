@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 import os
 from dotenv import load_dotenv
 
@@ -24,3 +25,6 @@ async def health_check():
 @app.get("/api/message")
 async def get_message():
     return {"message": "You've successfully integrated the backend!"}
+
+# Mount static files from the frontend build directory
+app.mount("/", StaticFiles(directory="./frontend_build", html=True), name="frontend")

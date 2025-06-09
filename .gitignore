@@ -1,0 +1,16 @@
+# Python virtual environment
+venv/
+
+# Node.js modules
+node_modules/
+
+# Next.js build output
+.next/
+out/
+
+# Environment variables file
+.env.local
+
+# Docker ignore for convenience if a .dockerignore isn't present in subdirectories
+# This is already handled by the Dockerfile COPY commands, but good to have if ever needed
+**/__pycache__/ 
