@@ -5,9 +5,11 @@ on:
     branches:
       - develop
       - main
+      - assignment
   pull_request:
     branches:
       - develop
+      - assignment
 
 env:
   AWS_REGION: us-east-1
